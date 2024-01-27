@@ -83,7 +83,7 @@ const Credencial = ({
 
           <div className="flex flex-col-reverse">
             <dt className="text-sm font-medium text-gray-600">{telefono}</dt>
-            <dd className="text-xs text-gray-500">Telefono</dd>
+            <dd className="text-xs text-gray-500">Phone</dd>
           </div>
         </dl>
 
@@ -91,13 +91,13 @@ const Credencial = ({
           <button
             onClick={(e) => generarCredencial(e)}
             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-            Descargar
+            Download
           </button>
 
           <button
             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
             onClick={()=> setComponenteCredencial(false)}>
-            Editar
+            Edit
           </button>
         </div>
       </form>

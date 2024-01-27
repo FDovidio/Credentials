@@ -51,8 +51,7 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
     <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started today</h1>
 
     <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt dolores deleniti
-      inventore quaerat mollitia?
+      Create a credential
     </p>
   {componenteCredencial ? (
         <Credencial
@@ -79,7 +78,7 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
     <div className="sm:flex sm:justify-between sm:gap-4">
     <div>
         <label className="block">
-          Nombre:
+          Name:
           <input
             type="text"
             value={nombre}
@@ -105,7 +104,7 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
 </div>
 
         <label className="block">
-          Apellido:
+          Last Name:
           <input
             type="text"
             value={apellido}
@@ -128,7 +127,7 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
 
 
         <label className="block">
-          Teléfono:
+          Phone:
           <input
             type="text"
             value={telefono}
@@ -150,7 +149,7 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
         </label>
 {!miniatura &&
         <label className="block my-2 ">
-          Subir Foto:
+          Upload Photo:
           <input
             type="file"
             onChange={manejarCambioImagen}
@@ -165,7 +164,7 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
           type="submit"
           className="bg-blue-500 text-white py-2 px-4  rounded hover:bg-blue-600"
         >
-          Enviar
+         Submit
         </button>
 </div>
 </form>
