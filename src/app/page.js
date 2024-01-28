@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import html2canvas from 'html2canvas';
+import { useMediaQuery } from 'react-responsive'
 import Credencial from "./components/Credencial"
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
   const [imagen, setImagen] = useState(null);
   const [miniatura, setMiniatura] = useState(null);
 const [componenteCredencial, setComponenteCredencial] = useState(false)
-  
+  const isMobile = useMediaQuery({ maxWidth: 630 })
 
   const manejarCambioImagen = (evento) => {
     const archivo = evento.target.files[0];
@@ -68,14 +68,14 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
 <form
    id="formularioConImagen"
         onSubmit={manejarEnvioFormulario}
-  className="relative block  rounded-lg border border-gray-100 sm:p-6 lg:p-8 bg-white text-black "
+  className="relative block  rounded-lg border border-gray-100 sm:p-8 p-8 bg-white text-black  "
 >
   <span
     className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"
   ></span>
 
 
-    <div className="sm:flex sm:justify-between sm:gap-4">
+    <div className="sm:flex sm:justify-between sm:gap-4 ">
     <div>
         <label className="block">
           Name:
@@ -147,7 +147,7 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
             required
           />
         </label>
-{!miniatura &&
+
         <label className="block my-2 ">
           Upload Photo:
           <input
@@ -157,8 +157,19 @@ const [componenteCredencial, setComponenteCredencial] = useState(false)
             className="mt-2 p-2"
           />
         </label>
+        {isMobile && (
+              <div className="mt-4 mb-4">
         
-}
+          <img
+            src={miniatura}
+            
+            className="h-16 w-16 rounded-lg object-cover shadow-sm border-black"
+          />
+        
+      </div>
+    )
+        }
+
         <div className='mt-2'>
         <button
           type="submit"

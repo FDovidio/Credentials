@@ -11,7 +11,7 @@ const Credencial = ({
   miniatura,
   setComponenteCredencial,
 }) => {
-  const router = useRouter();
+  const router = useRouter()
   const generarCredencial = (e) => {
     e.preventDefault()
     const formulario = document.getElementById("credencialFinal");
@@ -36,10 +36,7 @@ const Credencial = ({
           console.error("Error al generar la imagen:", error);
         })
     } finally {
-     
-        router.push('/')
-    
-
+        router.push("/")
     }
   };
   return (
@@ -87,7 +84,7 @@ const Credencial = ({
           </div>
         </dl>
 
-        <div className="flex mt- gap-2">
+        <div className="flex my-4  gap-2">
           <button
             onClick={(e) => generarCredencial(e)}
             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
