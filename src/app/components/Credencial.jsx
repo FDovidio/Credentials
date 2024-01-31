@@ -1,26 +1,30 @@
 import React from "react";
 import html2canvas from "html2canvas";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import './Credencial.css'
 
 const Credencial = ({
   nombre,
   apellido,
   email,
   telefono,
+  posicion,
   sector,
-  miniatura,
+  businessAddress,
   setComponenteCredencial,
 }) => {
-  const router = useRouter()
+
+  const router = useRouter();
   const generarCredencial = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const formulario = document.getElementById("credencialFinal");
 
     try {
       const elementosAOcultar = formulario.querySelectorAll("button");
       elementosAOcultar.forEach((elemento) => {
         elemento.style.display = "none";
-      })
+      });
 
       html2canvas(formulario)
         .then((canvas) => {
@@ -34,68 +38,79 @@ const Credencial = ({
         })
         .catch((error) => {
           console.error("Error al generar la imagen:", error);
-        })
+        });
     } finally {
-        router.push("/")
+      router.push("/");
     }
   };
+
+
   return (
-    <div className="flex justify-start items-center h-screen flex-col m-6">
+    <div className="flex justify-center w-screen ">
       <form
-        
-        className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8 bg-white  "
-        id="credencialFinal">
-        <span className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 "></span>
-
-        <div className="sm:flex sm:justify-between sm:gap-4">
-          <div>
-            <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
-              {nombre} {apellido}
-            </h3>
-
-            <p className="mt-1 text-xs font-medium text-gray-600">{sector}</p>
+        onSubmit={generarCredencial}
+        id="credencialFinal"
+        className="relative flex flex-col overflow-hidden rounded  bg-white  ">
+        <section className="relative flex flex-row overflow-hidden rounded-lg border border-gray-100 p-4  bg-white ">
+          <div className="relative h-1/2 w-full sm:full  lg:h-full lg:w-1/2 ">
+            <Image alt="Welcome" src={sector.img} className="px-4 " />
           </div>
+          <span className="absolute inset-y-4 right-1/2  w-0.5 bg-black  "></span>
 
-          <div className="hidden sm:block sm:shrink-0">
-            <img
-              alt="miniatura"
-              src={miniatura}
-              className="h-16 w-16 rounded-lg object-cover shadow-sm"
-            />
+          <div className="w-full px-4  sm:px-6  lg:w-1/2 lg:px-8  felx ">
+            <div className="mx-auto max-w-lg text-center text-black">
+              <h1 className="text-2xl font-bold sm:text-3xl">
+                {nombre} {apellido} - {posicion}
+              </h1>
+              <div className="flex gap-4 justify-start my-2">
+                <p className=" text-gray-500">
+                  <strong className="text-black me-1">m.</strong>
+                  {telefono}
+                </p>
+                <p className=" text-gray-500 ">
+                  <strong className="text-black me-1">e.</strong>
+                  {email}
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <p className=" text-gray-500 my-2">
+                <strong className="text-black me-1">w.</strong>
+                {sector.mail}
+              </p>
+            </div>
+
+            <div>
+              <p className=" text-gray-500 my-2">
+                <strong className="text-black me-1">a.</strong>
+                {businessAddress}
+              </p>
+            </div>
           </div>
-        </div>
-
-        <dl className="mt-6 flex gap-4 sm:gap-6">
-          <div className="flex flex-col-reverse">
-            <dt className="text-sm font-medium text-gray-600">{sector}</dt>
-            <dd className="text-xs text-gray-500">Sector</dd>
+        </section>{" "}
+        <div>
+          <p className=" text-gray-500 m-4 min-w-96">
+            This email and any fies transmitted with it are confidential and
+            intended solely for the use of the Individual or entity to whom they
+            are addressed. If you have received this email in error please
+            notify the system manager This message may contain confidential
+            information and is intended only for the Individual named, if vou
+            are not the named addresses you should not disseminate, ostribute or
+            copy this e-mail
+          </p>
+          <div className="m-4 ">
+            <button
+              type="submit"
+              className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white mx-2">
+              Download
+            </button>
+            <button
+              onClick={setComponenteCredencial}
+              className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
+              Edit
+            </button>
           </div>
-        </dl>
-
-        <dl className="mt-6 flex gap-4 sm:gap-6">
-          <div className="flex flex-col-reverse">
-            <dt className="text-sm font-medium text-gray-600">{email}</dt>
-            <dd className="text-xs text-gray-500">Email</dd>
-          </div>
-
-          <div className="flex flex-col-reverse">
-            <dt className="text-sm font-medium text-gray-600">{telefono}</dt>
-            <dd className="text-xs text-gray-500">Phone</dd>
-          </div>
-        </dl>
-
-        <div className="flex my-4  gap-2">
-          <button
-            onClick={(e) => generarCredencial(e)}
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-            Download
-          </button>
-
-          <button
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-            onClick={()=> setComponenteCredencial(false)}>
-            Edit
-          </button>
         </div>
       </form>
     </div>
