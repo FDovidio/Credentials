@@ -44,21 +44,24 @@ const Credencial = ({
           console.error("Error al generar la imagen:", error);
         });
     } finally {
-      router.push("/");
+      
+      router.push("/")
+      router.refresh
+      ;
     }
   };
 
   return (
-    <div className="flex justify-center w-screen flex-col items-center mt-6 ">
+    <div className="flex justify-center w-screen flex-col items-center  mt-6 ">
       <div className="m-4 ">
         <button
           onClick={generarCredencial}
-          className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white mx-2">
+          className="inline-block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white mx-2">
           Download
         </button>
         <button
           onClick={() => setComponenteCredencial(false)}
-          className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
+          className="inline-block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white">
           Edit
         </button>
       </div>
@@ -74,22 +77,22 @@ const Credencial = ({
               className="absolute inset-y-4 right-1/2  w-0.5 bg-black  "
               style={{ color: sector.color }}></span>
 
-            <div className="w-full px-4  sm:px-6  lg:w-1/2 lg:px-8  felx ms-4 ">
-              <div className="mx-auto max-w-lg text-center text-black ">
+            <div className="w-full px-4 lg:w-1/2    flex flex-col gap-2">
+              <div className=" max-w-lg text-center text-black ">
                 <div className="flex justify-start">
                   <h1
-                    className="text-2xl font-bold sm:text-3xl "
+                    className="text-xl font-bold  "
                     style={{ color: sector.color }}>
                     {nombre} {apellido}
                   </h1>
-                  <h1 className="text-2xl font-bold sm:text-3xl text-gray-500 ms-2">
+                  <h1 className="text-xl font-bold  text-gray-500 ms-2">
                     - {posicion}
                   </h1>
                 </div>
                 <div className="flex gap-4 justify-start my-2">
                   <p className=" text-gray-500">
                     <strong
-                      className="text-black me-1"
+                      className="text-black me-1 font-normal "
                       style={{ color: sector.color }}>
                       m.
                     </strong>
@@ -97,7 +100,7 @@ const Credencial = ({
                   </p>
                   <p className=" text-gray-500 ">
                     <strong
-                      className="text-black me-1"
+                      className="text-black me-1 font-normal"
                       style={{ color: sector.color }}>
                       e.
                     </strong>
@@ -109,7 +112,7 @@ const Credencial = ({
               <div>
                 <p className=" text-gray-500 my-2">
                   <strong
-                    className="text-black me-1"
+                    className="text-black me-1 font-normal"
                     style={{ color: sector.color }}>
                     w.
                   </strong>
@@ -120,14 +123,14 @@ const Credencial = ({
               <div>
                 <p className=" text-gray-500 my-2">
                   <strong
-                    className="text-black me-1"
+                    className="text-black me-1 font-normal"
                     style={{ color: sector.color }}>
                     a.
                   </strong>
                   {businessAddress}
                 </p>
               </div>
-              <div className="w-full flex justify-start items-center mt-4 gap-4">
+              <div className="w-full flex justify-start   mt-10 gap-4">
                 <a href={sector.ig}>
                   <FaInstagram className="text-black text-2xl" />
                 </a>

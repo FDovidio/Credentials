@@ -1,10 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import Credencial from "./components/Credencial";
 import groupImg from "./multimedia/Group.png";
 import sportainmentImg from "./multimedia/Sportainment.png";
 import mediaImg from "./multimedia/Media.png";
+import Header from './components/Header'
+
 
 export default function Home() {
   const [nombre, setNombre] = useState('');
@@ -27,7 +28,9 @@ export default function Home() {
 
   const manejarEnvioFormulario = (evento) => {
     evento.preventDefault();
+    if(sector.value === 'VANQUISH GROUP' || 'VANQUISH SPORTAIMENT' || 'VANQUISH MEDIA'  ){
     setComponenteCredencial(true);
+    }
   };
 
   const handleSector = (e) => {
@@ -58,9 +61,12 @@ export default function Home() {
 
   return (
 
-    <div>
-      <div className="w-screen px-4 py-16 sm:px-6 lg:px-8 min-w-screen-lg">
-        <div className="flex flex-col justify-center items-center w-screen  ">
+    <div className='h-screen bg-gradient-radial '>
+            <header className=''>
+        <Header/>
+      </header>
+      <div className=" px-4 py-10 sm:px-6 lg:px-8 ">
+        <div className="flex flex-col justify-center items-center  ">
           <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
             {componenteCredencial ? ("The credential is ready to download") : ("Get started today")}
             </h1>
@@ -82,15 +88,13 @@ export default function Home() {
               setComponenteCredencial={setComponenteCredencial}
             />
           ) : (
-            <div className='flex justify-start items-center h-screen flex-col m-4' >
+            <div className='flex justify-start items-center h-screen flex-col m-4 mb-4' >
               <form
                 id="formularioConImagen"
                 onSubmit={manejarEnvioFormulario}
                 className="relative block  rounded-lg border border-gray-100 sm:p-8 p-8 bg-white text-black  "
               >
-                <span
-                  className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"
-                ></span>
+
                 <div>
                   <label className="block">
                     Name:
@@ -177,7 +181,8 @@ export default function Home() {
                     name="Sector"
                     autoComplete={sector}
                     onChange={(e) => handleSector(e)}
-                    className="mt-2 p-2 border rounded w-full">
+                    className="mt-2 p-2 border rounded w-full"
+                    required>
                       <option value="">Select a sector</option>
                     {sectores && 
                     
@@ -193,7 +198,7 @@ export default function Home() {
                 <div className='mt-2'>
                   <button
                     type="submit"
-                    className="bg-blue-500 text-white py-2 px-4  rounded hover:bg-blue-600"
+                    className="bg-indigo-600 text-white py-2 px-4  rounded hover:bg-blue-600"
                   >
                     Submit
                   </button>
