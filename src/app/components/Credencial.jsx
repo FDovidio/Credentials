@@ -22,9 +22,11 @@ const Credencial = ({
   const router = useRouter();
   const generarCredencial = (e) => {
     e.preventDefault();
-    const formulario = document.getElementById("credencialFinal");
+    const formulario = document.getElementById("credencial")
+    formulario.id= "credencialFinal"
 
     try {
+  ;
       const elementosAOcultar = formulario.querySelectorAll("button");
       elementosAOcultar.forEach((elemento) => {
         elemento.style.display = "none";
@@ -66,15 +68,15 @@ const Credencial = ({
         </button>
       </div>
       <form
-        id="credencialFinal"
-        className="relative flex flex-col  rounded   bg-white  mx-4">
+        id="credencial"
+        className="form  relative flex flex-col  rounded   bg-white  mx-4 lg:overflow-x-auto">
         <div className="">
           <section className="relative flex flex-row overflow-hidden rounded-lg border border-gray-100 p-4  bg-white ">
             <div className="relative h-1/2 w-full sm:full  lg:h-full lg:w-1/2 ">
               <Image alt="Welcome" src={sector.img} className="px-4 " />
             </div>
             <span
-              className="absolute inset-y-4 right-1/2  w-0.5 bg-black  "
+              className="lg:relative lg:right-1/3 inset-y-4 right-1/2  w-0.5 bg-black  "
               style={{ color: sector.color }}></span>
 
             <div className="w-full px-4 lg:w-1/2    flex flex-col gap-2">
@@ -83,10 +85,10 @@ const Credencial = ({
                   <h1
                     className="text-xl font-bold  "
                     style={{ color: sector.color }}>
-                    {nombre} {apellido}
+                    {nombre} {apellido} 
                   </h1>
                   <h1 className="text-xl font-bold  text-gray-500 ms-2">
-                    - {posicion}
+                     - {posicion}
                   </h1>
                 </div>
                 <div className="flex gap-4 justify-start my-2">

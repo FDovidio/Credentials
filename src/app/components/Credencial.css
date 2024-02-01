@@ -1,5 +1,16 @@
 #credencialFinal {
+max-width: 990px;
+min-width: 990px;
+min-height: 350px;
+}
 
 
-max-height: 400px;
+@media screen and (max-width: 640px) {
+#logoHeader{
+    display: flex;
+    justify-content: center;
+gap:10vh;
+align-items: center;
+}
+
 }
