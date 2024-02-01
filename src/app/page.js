@@ -15,13 +15,14 @@ export default function Home() {
   const [logo, setLogo] = useState(null);
   const [businessAddress, setBusinessAddress] = useState('');
   const [posicion, setPosicion] = useState(''); 
+  const [web, setWeb] = useState ('')
   const [componenteCredencial, setComponenteCredencial] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 630 });
+
 
   const sectores = [
-    { id: 1, value: 'VANQUISH GROUP', label: 'VANQUISH GROUP', img: groupImg },
-    { id: 2, value: 'VANQUISH SPORTAIMENT', label: 'VANQUISH SPORTAIMENT', img: sportainmentImg },
-    { id: 3, value: 'VANQUISH MEDIA', label: 'VANQUISH MEDIA', img: mediaImg },
+    { id: 1, value: 'VANQUISH GROUP', label: 'VANQUISH GROUP', img: groupImg, ig:'https://www.instagram.com/letsvanquish', linkedin:'https://www.linkedin.com/company/letsvanquish/mycompany/', fb: 'https://www.facebook.com/%3Cusername%3E', color:"black"},
+    { id: 2, value: 'VANQUISH SPORTAIMENT', label: 'VANQUISH SPORTAIMENT', img: sportainmentImg, ig:'https://www.instagram.com/letsvanquish', linkedin:'https://www.linkedin.com/company/letsvanquish/mycompany/', fb: 'https://www.facebook.com/%3Cusername%3E', color:"red" },
+    { id: 3, value: 'VANQUISH MEDIA', label: 'VANQUISH MEDIA', img: mediaImg, ig:'https://www.instagram.com/vanquishmedia.productions', linkedin:'https://www.linkedin.com/company/vanquish-mediaok/', fb: 'https://www.facebook.com/%3Cusername%3E', color:'blue' },
   ];
 
   const manejarEnvioFormulario = (evento) => {
@@ -56,13 +57,16 @@ export default function Home() {
   }, [sector]);
 
   return (
+
     <div>
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-lg flex flex-col justify-center items-center w-screen">
-          <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started today</h1>
-          <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
+      <div className="w-screen px-4 py-16 sm:px-6 lg:px-8 min-w-screen-lg">
+        <div className="flex flex-col justify-center items-center w-screen  ">
+          <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+            {componenteCredencial ? ("The credential is ready to download") : ("Get started today")}
+            </h1>
+          {!componenteCredencial && <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
             Create a credential
-          </p>
+          </p>}
         
           {componenteCredencial ? (
             <Credencial
@@ -73,6 +77,7 @@ export default function Home() {
               businessAddress={businessAddress}
               sector={sector}
               posicion={posicion}
+              web={web}
               logo={logo}
               setComponenteCredencial={setComponenteCredencial}
             />
@@ -149,6 +154,16 @@ export default function Home() {
                     type="text"
                     value={businessAddress}
                     onChange={(e) => setBusinessAddress(e.target.value)}
+                    className="mt-2 p-2 border rounded w-full"
+                    required
+                  />
+                </label>
+                                <label className="block">
+                  Institutional Web:
+                  <input
+                    type="text"
+                    value={web}
+                    onChange={(e) => setWeb(e.target.value)}
                     className="mt-2 p-2 border rounded w-full"
                     required
                   />
