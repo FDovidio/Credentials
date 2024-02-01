@@ -22,8 +22,8 @@ export default function Home() {
 
   const sectores = [
     { id: 1, value: 'VANQUISH GROUP', label: 'VANQUISH GROUP', img: groupImg, ig:'https://www.instagram.com/letsvanquish', linkedin:'https://www.linkedin.com/company/letsvanquish/mycompany/', fb: 'https://www.facebook.com/%3Cusername%3E', color:"black"},
-    { id: 2, value: 'VANQUISH SPORTAIMENT', label: 'VANQUISH SPORTAIMENT', img: sportainmentImg, ig:'https://www.instagram.com/letsvanquish', linkedin:'https://www.linkedin.com/company/letsvanquish/mycompany/', fb: 'https://www.facebook.com/%3Cusername%3E', color:"red" },
-    { id: 3, value: 'VANQUISH MEDIA', label: 'VANQUISH MEDIA', img: mediaImg, ig:'https://www.instagram.com/vanquishmedia.productions', linkedin:'https://www.linkedin.com/company/vanquish-mediaok/', fb: 'https://www.facebook.com/%3Cusername%3E', color:'blue' },
+    { id: 2, value: 'VANQUISH SPORTAIMENT', label: 'VANQUISH SPORTAIMENT', img: sportainmentImg, ig:'https://www.instagram.com/letsvanquish', linkedin:'https://www.linkedin.com/company/letsvanquish/mycompany/', fb: 'https://www.facebook.com/%3Cusername%3E', color:"#eb0045" },
+    { id: 3, value: 'VANQUISH MEDIA', label: 'VANQUISH MEDIA', img: mediaImg, ig:'https://www.instagram.com/vanquishmedia.productions', linkedin:'https://www.linkedin.com/company/vanquish-mediaok/', fb: 'https://www.facebook.com/%3Cusername%3E', color:'#4468f1' },
   ];
 
   const manejarEnvioFormulario = (evento) => {
@@ -48,11 +48,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Este efecto se ejecutará cuando el estado de 'sector' cambie
-    console.log("Nuevo valor de sector:", sector);
-
+   
     if (sector) {
-      console.log("Logo en Credencial:", sector.img);
+
       setLogo(sector.img);
     } else {
       console.error("Sector no encontrado");
@@ -69,7 +67,7 @@ export default function Home() {
       <div className=" px-4 py-10 sm:px-6 lg:px-8 ">
         <div className="flex flex-col justify-center items-center  ">
           <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl ">
-            {componenteCredencial ? ("The credential is ready to download") : ("Get started today")}
+            {componenteCredencial ? ("Your credential are ready to download") : ("Get started today")}
             </h1>
           {!componenteCredencial && <p className="mx-auto my-4  text-center text-gray-500">
             Create a credential
