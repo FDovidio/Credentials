@@ -61,16 +61,17 @@ export default function Home() {
 
   return (
 
-    <div className='h-screen  '>
+    <div className=''>
             <header className=''>
         <Header/>
       </header>
+      
       <div className=" px-4 py-10 sm:px-6 lg:px-8 ">
         <div className="flex flex-col justify-center items-center  ">
-          <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+          <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl ">
             {componenteCredencial ? ("The credential is ready to download") : ("Get started today")}
             </h1>
-          {!componenteCredencial && <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
+          {!componenteCredencial && <p className="mx-auto my-4  text-center text-gray-500">
             Create a credential
           </p>}
         
@@ -88,7 +89,7 @@ export default function Home() {
               setComponenteCredencial={setComponenteCredencial}
             />
           ) : (
-            <div className='flex justify-start items-center h-screen flex-col m-4 mb-4' >
+            <div className='flex justify-start items-center  flex-col mb-4' >
               <form
                 id="formularioConImagen"
                 onSubmit={manejarEnvioFormulario}

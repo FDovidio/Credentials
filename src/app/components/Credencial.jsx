@@ -76,7 +76,7 @@ const Credencial = ({
               <Image alt="Welcome" src={sector.img} className="px-4 " />
             </div>
             <span
-              className="lg:relative lg:right-1/3 inset-y-4 right-1/2  w-0.5 bg-black  "
+              className=" lg:right-1/3 inset-y-4 right-1/2  w-0.5 bg-black  "
               style={{ color: sector.color }}></span>
 
             <div className="w-full px-4 lg:w-1/2    flex flex-col gap-2">
