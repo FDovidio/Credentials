@@ -11,7 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={SofiaSans.className}>{children}</body>
+
+      <body className={SofiaSans.className}>
+        <main className='h-screen'>
+        {children}
+        </main>
+        </body>
     </html>
   )
 }
