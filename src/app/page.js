@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
 
-    <div className='h-screen bg-gradient-radial '>
+    <div className='h-screen  '>
             <header className=''>
         <Header/>
       </header>
