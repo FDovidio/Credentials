@@ -67,7 +67,7 @@ const Credencial = ({
       </div>
       <form
         id="credencialFinal"
-        className="relative flex flex-col  rounded   bg-white  ">
+        className="relative flex flex-col  rounded   bg-white  mx-4">
         <div className="">
           <section className="relative flex flex-row overflow-hidden rounded-lg border border-gray-100 p-4  bg-white ">
             <div className="relative h-1/2 w-full sm:full  lg:h-full lg:w-1/2 ">
