@@ -20,7 +20,7 @@ const Credencial = ({
   setComponenteCredencial,
 }) => {
   const router = useRouter();
-  const generarCredencial = (e) => {
+  const generarCredencial =  (e) => {
     e.preventDefault();
     const formulario = document.getElementById("credencial")
     formulario.id= "credencialFinal"
@@ -46,7 +46,7 @@ const Credencial = ({
           console.error("Error al generar la imagen:", error);
         });
     } finally {
-      
+      formulario.id = "credencial";
       router.push("/")
       router.refresh
       ;
@@ -58,7 +58,7 @@ const Credencial = ({
       <div className="m-4 ">
         <button
           onClick={generarCredencial}
-          className="inline-block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white mx-2">
+          className="inline-block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white mx-2 ">
           Download
         </button>
         <button
@@ -69,29 +69,31 @@ const Credencial = ({
       </div>
       <form
         id="credencial"
-        className="form  relative flex flex-col  rounded   bg-white  mx-4 lg:overflow-x-auto">
+        className="form  relative flex flex-col  rounded   bg-white  mx-4 lg:overflow-x-auto min-w-72">
         <div className="">
           <section className="relative flex flex-row overflow-hidden rounded-lg border border-gray-100 p-4  bg-white ">
-            <div className="relative h-1/2 w-fit sm:full  lg:h-full  ">
+            <div
+              className="relative  min-w-60 max-w-md sm:full  lg:h-full  "
+              id="imagenLogo">
               <Image
                 alt="Welcome"
                 src={sector.img}
-                className="px-4 w-72 max-h-28"
+                className="px-4 w-[380px] h-[65px] "
               />
             </div>
             <span
               className=" lg:right-1/3 inset-y-4 right-1/2  w-0.5  "
               style={{ backgroundColor: sector.color }}></span>
 
-            <div className="w-full px-4 lg:w-1/2    flex flex-col  ">
-              <div className=" max-w-lg text-center text-black ">
-                <div className="flex justify-start items-start">
+            <div className="w-full h-full ps-2 pb-2 lg:w-1/2    flex flex-col items-start justify-start ">
+              <div className=" max-w-lg text-center text-black text-nowrap flex flex-col items-start justify-start ">
+                <div className="flex   justify-start items-start text-nowrap">
                   <h1
-                    className="text-2xl font-bold  mb-2"
+                    className="text-2xl font-bold  mb-2 text-nowrap flex flex-col items-start justify-start"
                     style={{ color: sector.color }}>
                     {nombre} {apellido}
                   </h1>
-                  <h1 className="text-2xl font-bold  text-gray-500 ms-2">
+                  <h1 className="text-2xl font-bold  text-gray-500 ms-2 text-nowrap">
                     - {posicion}
                   </h1>
                 </div>
@@ -136,7 +138,7 @@ const Credencial = ({
                   {businessAddress}
                 </p>
               </div>
-              <div className="w-full flex justify-start sm:mt-2  gap-4">
+              <div className="w-full flex justify-start mt-4 gap-4">
                 <a href={sector.ig} target="_blank" rel="noopener noreferrer">
                   <FaInstagram className="text-black text-2xl" />
                 </a>
