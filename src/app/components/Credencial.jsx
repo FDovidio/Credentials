@@ -54,7 +54,7 @@ const Credencial = ({
   };
 
   return (
-    <div className="flex justify-center w-screen flex-col items-center  mt-6 ">
+    <div className="flex justify-center w-screen  flex-col items-center  mt-6">
       <div className="m-4 ">
         <button
           onClick={generarCredencial}
@@ -69,16 +69,16 @@ const Credencial = ({
       </div>
       <form
         id="credencial"
-        className="form  relative flex flex-col  rounded   bg-white  mx-4 lg:overflow-x-auto min-w-72">
+        className="relative flex flex-col  rounded   bg-white  mx-4  min-w-72 max-w-5xl">
         <div className="">
           <section className="relative flex flex-row overflow-hidden rounded-lg border border-gray-100 p-4  bg-white ">
             <div
-              className="relative  min-w-60 max-w-md sm:full  lg:h-full  "
+              className="relative h-full  sm:full  lg:h-full  "
               id="imagenLogo">
               <Image
                 alt="Welcome"
                 src={sector.img}
-                className="px-4 w-[380px] h-[65px] "
+                className="px-4 min-w-xs max-w-sm "
               />
             </div>
             <span
@@ -87,13 +87,13 @@ const Credencial = ({
 
             <div className="w-full h-full ps-2 pb-2 lg:w-1/2    flex flex-col items-start justify-start ">
               <div className=" max-w-lg text-center text-black text-nowrap flex flex-col items-start justify-start ">
-                <div className="flex   justify-start items-start text-nowrap">
+                <div className="flex min-w-full flex-row whitespace-nowrap">
                   <h1
-                    className="text-2xl font-bold  mb-2 text-nowrap flex flex-col items-start justify-start"
+                    className="text-2xl font-bold  mb-2    "
                     style={{ color: sector.color }}>
                     {nombre} {apellido}
                   </h1>
-                  <h1 className="text-2xl font-bold  text-gray-500 ms-2 text-nowrap">
+                  <h1 className="text-2xl font-bold  text-gray-500 ms-2 ">
                     - {posicion}
                   </h1>
                 </div>

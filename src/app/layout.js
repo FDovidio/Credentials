@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={SofiaSans.className}>
-        <main className=' bg-gradient-to-b from-gray-100 to-gray-500'>
+        <main className=' bg-gradient-to-b from-gray-100 to-gray-500 '>
         {children}
         </main>
         </body>

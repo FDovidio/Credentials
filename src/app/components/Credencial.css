@@ -1,9 +1,10 @@
 #credencialFinal {
-  max-width: 1000px;
+
   min-width: 1000px;
   min-height: 300px;
- 
+
 }
+
 
 
 @media screen and (max-width: 640px) {

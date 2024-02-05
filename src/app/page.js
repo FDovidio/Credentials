@@ -64,7 +64,8 @@ export default function Home() {
         <Header/>
       </header>
       
-      <div className=" px-4 py-10 sm:px-6 lg:px-8 ">
+      <div className=" px-4 py-10 sm:px-6  lg:px-8 "
+      id='page'>
         <div className="flex flex-col justify-center items-center  ">
           <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl ">
             {componenteCredencial ? ("Your credential are ready to download") : ("Get started today")}
